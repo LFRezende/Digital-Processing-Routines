@@ -2,10 +2,10 @@ import numpy as np
 from signals import *
 from matplotlib import pyplot as plt
 
-L = 10
+L = 5
 r = 100
 
-compression = 1
+compression = 2
 
 x = np.arange(-L, L, 1/r)
 y, _ = chirp(x, compFactor = compression)
