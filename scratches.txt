@@ -1,0 +1,42 @@
+CONVOLUTE SIGNAL
+
+s = [10, -5, 20, 10]
+h = [-1, 0, 5]
+
+s*h
+---
+        10  -5  20  10
+-1  0   5
+y[0] = 10*5 = 50
+Or: 0*-1 + 0*0 + 10*5 + -5*0 + 20*0 + 10*0 = 50
+Therefore:
+- Begin both vectors with length L1 + L2 - 1, with L1 + L2 - 1 - (Lx) zeroes for each vector, 
+with L2 - 1 zeroes in the beginning of S and L1 - 1 zeroes for H at the end.
+
+        10  -5  20  10
+    -1  0   5       
+
+y[1] = 0*0 + 0*-1 + 10*0 + -5*5 + 20*0 + 10*0 0*0
+
+Therefore: 
+- Add a zero at the beginning of h and one at the end of s to maintain vector length equal.
+
+...
+
+0   0    10  -5  20  10  0   0   0   0   0
+0   0    0   0   0   -1  0   5   0   0   0 --> Final convolution
+
+0   0    10  -5  20  10  0   0   0   0   0   0
+0   0    0   0   0   0   -1  0   5   0   0   0 --> End of the convolution
+
+
+Both vectors will have the same size after the convolution:
+
+{Initial_Zeros: L1 + L2 - 1 - (Lx)} + {vector:Lx} + {movement: L1 + L2 - 1}
+
+L(x,y) = CONST. = 2*(L1 + L2 - 1)
+
+Henceforth, the convolution ends before the length of the Y vector is 2*L1 + 2*L2 - 2.
+
+--> len(y) = 2*L1 + 2*L2 - 3
+
