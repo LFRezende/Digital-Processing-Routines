@@ -11,6 +11,7 @@ x = np.arange(-L, L, 1/r)
 step = np.full(shape= 2*L*r, fill_value= 1)
 s, _ = chirp(x, kf = 1)
 h, _ = chirp(x, kf = 1) # Baixo descasamento (~0.5%) AUMENTA o PSLR!!!
+
 y = convolute(s, h)
 y_length = len(y)
 t = np.arange(-y_length/(2*r), y_length/(2*r), 1/r)
