@@ -3,9 +3,9 @@ from signals import *
 from operations import *
 from matplotlib import pyplot as plt
 
-L = 20
+L = 18
 H = 5
-r = 500
+r = 1000
 checkSinc =  False
 checkSweep = True
 
@@ -20,7 +20,7 @@ x = np.arange(-L, L, 1/r)
 step = np.full(shape= 2*L*r, fill_value= 1)
 
 if checkSweep:
-    sweep_match(x, rate = 0.0001, amount = 200, r = r)
+    sweep_match(x, rate = 0.00001, amount = 300, r = r)
 s, _ = chirp(x, kf = 1)
 h, _ = chirp(x, kf = 1 )# Baixo descasamento (~0.5%) AUMENTA o PSLR!!!
 y = convolute(s, h)
